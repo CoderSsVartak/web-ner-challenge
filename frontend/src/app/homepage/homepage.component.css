@@ -1,0 +1,28 @@
+.search-bar{
+    display: grid;
+    margin: 1em auto;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.search-form{
+    margin-top: .1em;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 2rem;
+    align-items: center;
+}
+#search-bar{
+    width: 60em;
+    height: 30em;
+    display: flex;
+    border: none;
+    border-radius: 2rem;
+    outline: none;
+}
+textarea{
+    margin: 2rem;
+    font-size: 0.95rem;
+}

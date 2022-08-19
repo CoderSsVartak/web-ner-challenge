@@ -1,0 +1,20 @@
+<table class="table table-striped w-75" style="margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr>
+        <th scope="col" class="font-family-sans-serif">#</th>
+        <th scope="col" class="font-family-sans-serif">Word</th>
+        <th scope="col" class="font-family-sans-serif">NER Mapping</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let word of data|keyvalue; index as i">
+        <th class="font-family-sans-serif" scope="row">{{ i + 1 }}</th>
+        <td class="font-family-sans-serif">
+            {{ word.key }}
+        </td>
+        <td class="font-family-sans-serif">
+            {{ word.value }}
+        </td>
+    </tr>
+  </tbody>
+</table>

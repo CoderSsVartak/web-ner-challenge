@@ -1,0 +1,52 @@
+<div class="search-body" style="min-height: 82vh !important; margin-top: 20px;">
+    <div class="search-bar">
+        <form class="d-flex-column flex-reverse" [formGroup]="searchForm" action=''>
+            <div class="search-form input-group mt-4">
+                <textarea class="form-control border border-primary p-4"
+                        id="search-bar"
+                        formControlName="searchBar"
+                        ngModel 
+                        placeholder="Type the text" 
+                        name="document"
+                        aria-label="Search" 
+                        required
+                        autocomplete="off"></textarea>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-8">
+                        <mat-form-field appearance="fill" style="width: 80%;" class="ml-auto mr-auto">
+                            <mat-label>Select Language</mat-label>
+                            <mat-select [(value)] = "language" selected="english">
+                                <mat-option *ngFor="let lang of langs" value={{lang.toLowerCase()}}>
+                                    {{lang}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-2 d-flex align-items-start mr-auto">
+                        <button class="btn btn-outline-danger font-family-sans-serif px-3" type="button"(click)="clear()">
+                            <span class="material-icons">CLEAR</span>
+                        </button>
+                    </div>
+                    <div class="col-2 d-flex align-items-start">
+                        <button class="btn btn-outline-primary font-family-sans-serif px-3" type="button"(click)="onSubmit()">
+                            <span class="material-icons">GO</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <app-output-table
+        *ngIf="data_loaded"
+        [data]="results"
+        style="display: grid"
+    ></app-output-table>
+    <div class="mx-auto w-75 col-sm-12 col-md-8 offset-md-2 text-center">
+        <ngb-alert [ngClass]="alert.class" [type]="alert.type" [style.display]="showAlert ? 'block': 'none'" [dismissible]="alert.dismissible">
+            {{ alert.msg }}
+        </ngb-alert>
+    </div>
+</div>

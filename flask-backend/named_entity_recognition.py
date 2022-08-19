@@ -1,4 +1,3 @@
-import re
 import spacy
 from lang_support import lang_map
 
@@ -8,6 +7,7 @@ class NamedEntityRecognition:
         self.language = language.lower()
         try:
             self.ner_model = spacy.load(lang_map[language])
+            print(f'loaded {lang_map[language]}')
         except KeyError:
             self.ner_model = None
 
@@ -29,5 +29,5 @@ class NamedEntityRecognition:
                 result['msg'] = 'No entities found'
         except Exception as e:
             result['msg'] = str(e)
-
+           
         return result
